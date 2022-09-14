@@ -20,7 +20,6 @@ const productSchema = mongoos.Schema(
     },
     ratting: {
       type: Number,
-      default: 0,
     },
     image: {
       type: String,
