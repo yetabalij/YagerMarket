@@ -22,10 +22,6 @@ const productSchema = mongoos.Schema(
       type: Number,
       default: 0,
     },
-    review: {
-      type: String,
-      default: "",
-    },
     image: {
       type: String,
       required: true,
