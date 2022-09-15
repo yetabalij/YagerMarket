@@ -1,11 +1,14 @@
 import React from "react";
+import Logo from "./../assets/logo/yagermarket3.png";
 
 const NavBar = () => {
   return (
     <div className="bg-gray-100 shadow-md mb-5">
       <div className="flex justify-between py-2 w-[94%] mx-auto items-center">
-        <div className="text-xl text-orange-700 font-bold bg-orange-200 p-3 rounded-full shadow-md">
-          <a href="/">YM</a>
+        <div className="w-16 h-16">
+          <a href="/">
+            <img src={Logo} alt="Logo" />
+          </a>
         </div>
         <div className="flex gap-4">
           <div>
