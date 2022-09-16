@@ -21,7 +21,7 @@ const ProductLists = () => {
   }, [pageNumber]);
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       {loading && <Loading />}
       <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
         {products.map((product, key) => {
@@ -32,14 +32,16 @@ const ProductLists = () => {
           );
         })}
       </div>
-      <div>
+      <div className="mt-10 flex gap-1">
         <button onClick={() => setPageNumber(Math.max(0, pageNumber - 1))}>
-          Previous
+          <p className="text-[#232f3e] text-lg">Previous</p>
         </button>
         {pages.map((index) => {
           return (
             <button onClick={() => setPageNumber(index)} key={index}>
-              {index + 1}
+              <p className="bg-orange-500 text-white py-[1px] px-[8px]">
+                {index + 1}
+              </p>
             </button>
           );
         })}
@@ -48,7 +50,7 @@ const ProductLists = () => {
             setPageNumber(Math.min(totalPages - 1, pageNumber + 1))
           }
         >
-          Next
+          <p className="text-[#232f3e] text-lg">Next</p>
         </button>
       </div>
     </div>
