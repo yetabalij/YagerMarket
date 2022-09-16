@@ -10,10 +10,19 @@ exports.createProduct = async (req, res) => {
   }
 };
 
+//Get all Products with Pagination
 exports.getAllProducts = async (req, res) => {
   try {
-    const products = await Products.find();
-    res.status(200).json(products);
+    const totalProducts = await Products.find().countDocuments({});
+    const pageSize = 10;
+    const page = parseInt(req.query.page || "0");
+
+    const products = await Products.find()
+      .limit(pageSize)
+      .skip(pageSize * page);
+    res
+      .status(200)
+      .json({ products, totalPages: Math.ceil(totalProducts / pageSize) });
   } catch (error) {
     res.status(402).json({ message: "Something went wrong" });
   }
