@@ -7,9 +7,13 @@ const Home = () => {
   return (
     <div className="">
       <NavBar />
-      <div className="w-[80%] mx-auto">
-        <Search />
-        <ProductLists />
+      <div className="w-[86%] mx-auto sm:grid grid-cols-12">
+        <div className="col-span-2">
+          <Search />
+        </div>
+        <div className="col-span-10">
+          <ProductLists />
+        </div>
       </div>
     </div>
   );
