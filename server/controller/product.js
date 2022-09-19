@@ -40,3 +40,13 @@ exports.searchProducts = async (req, res) => {
     res.status(402).json({ message: "Something went wrong." });
   }
 };
+
+//Search products by Catagory
+exports.searchByCatagory = async (req, res) => {
+  try {
+    const searchByCategory = await Products.find(req.body);
+    res.status(200).json({ searchByCategory });
+  } catch (error) {
+    res.status(402).json({ message: "Something went wrong." });
+  }
+};
