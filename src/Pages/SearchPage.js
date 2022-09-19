@@ -9,6 +9,7 @@ const SearchPage = () => {
   const [searchData, setSearchData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  //values passed from the useNavigate hock.
   const start = location.state.start;
   const end = location.state.end;
   const Value = {
