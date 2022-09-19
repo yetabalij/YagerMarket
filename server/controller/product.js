@@ -27,3 +27,16 @@ exports.getAllProducts = async (req, res) => {
     res.status(402).json({ message: "Something went wrong" });
   }
 };
+
+//search products
+exports.searchProducts = async (req, res) => {
+  const searchValue = req.body;
+  try {
+    const searchProduct = await Products.find({
+      price: { $gt: searchValue.start, $lt: searchValue.end },
+    });
+    res.status(200).json({ searchProduct });
+  } catch (error) {
+    res.status(402).json({ message: "Something went wrong." });
+  }
+};
