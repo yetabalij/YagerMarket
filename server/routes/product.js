@@ -4,6 +4,7 @@ const {
   getAllProducts,
   createProduct,
   searchProducts,
+  searchByCatagory,
 } = require("./../controller/product");
 
 const router = express.Router();
@@ -12,5 +13,6 @@ const router = express.Router();
 router.get("/", getAllProducts);
 router.post("/createproduct", createProduct);
 router.post("/search", searchProducts);
+router.post("/catagorysearch", searchByCatagory);
 
 module.exports = router;
