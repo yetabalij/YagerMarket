@@ -50,3 +50,14 @@ exports.searchByCatagory = async (req, res) => {
     res.status(402).json({ message: "Something went wrong." });
   }
 };
+
+//get single Product.
+exports.getSingleProduct = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const singleProduct = await Products.findById(id);
+    res.status(200).json({ singleProduct });
+  } catch (error) {
+    res.status(402).json({ message: "Something went wrong." });
+  }
+};
