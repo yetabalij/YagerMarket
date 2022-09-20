@@ -18,7 +18,7 @@ const AddCartCard = () => {
       </div>
       <span className="border-b-2 border-solid block border-gray-300 opacity-[0.6] w-[100%] my-2"></span>
       <div className="py-4">
-        <button className="bg-orange-500 text-white px-10 py-2">
+        <button className="bg-orange-500 text-white px-12 py-2">
           Add to Cart
         </button>
       </div>
