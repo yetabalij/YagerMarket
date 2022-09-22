@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addItemToCart } from "../redux/features/product/cartItemsSlice";
+import {
+  addItemToCart,
+  itemToLocalStorate,
+} from "../redux/features/product/cartItemsSlice";
 
 const AddCartCard = () => {
   const [amount, setAmount] = useState(1);
@@ -32,6 +35,7 @@ const AddCartCard = () => {
           className="bg-orange-500 text-white px-12 py-2"
           onClick={() => {
             dispach(addItemToCart({ ...product.singleProduct, amount }));
+            dispach(itemToLocalStorate());
           }}
         >
           Add to Cart
