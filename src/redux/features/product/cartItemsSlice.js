@@ -21,8 +21,11 @@ const cartItemsSlice = createSlice({
         return { ...state, Items: [...state.Items, action.payload] };
       }
     },
+    itemToLocalStorate: (state) => {
+      localStorage.setItem("cartItems", JSON.stringify(state.Items));
+    },
   },
 });
 
-export const { addItemToCart } = cartItemsSlice.actions;
+export const { addItemToCart, itemToLocalStorate } = cartItemsSlice.actions;
 export default cartItemsSlice.reducer;
