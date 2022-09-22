@@ -1,9 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Logo from "./../assets/logo/yagermarket3.png";
 import { RiShoppingCartFill } from "react-icons/ri";
 
 const NavBar = () => {
+  const itemsNumber = useSelector((state) => state.CartItems.Items.length);
+
   return (
     <div className="bg-gray-100 shadow-md mb-5">
       <div className="flex justify-between py-2 w-[94%] mx-auto items-center">
@@ -20,7 +23,9 @@ const NavBar = () => {
             <Link to="/cart" className="flex relative">
               <RiShoppingCartFill className="text-3xl" />
               <div className="absolute right-[-60%] top-[-20%] w-[18px] h-[18px]">
-                <p className="text-lg font-bold absolute top-[-15%]">1</p>
+                <p className="text-lg font-bold absolute top-[-15%]">
+                  {itemsNumber}
+                </p>
               </div>
             </Link>
           </div>
