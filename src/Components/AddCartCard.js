@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   addItemToCart,
@@ -9,6 +9,10 @@ const AddCartCard = () => {
   const [amount, setAmount] = useState(1);
   const product = JSON.parse(localStorage.getItem("singleProduct"));
   const dispach = useDispatch();
+
+  // useEffect(() => {
+  //   dispach(itemToLocalStorate());
+  // }, [product]);
 
   return (
     <div className="sm:mt-4 shadow-sm p-4">
@@ -25,7 +29,11 @@ const AddCartCard = () => {
           {Array(product.singleProduct.quantity)
             .fill()
             .map((_, i) => {
-              return <option value={i + 1}>{i + 1}</option>;
+              return (
+                <option key={i} value={i + 1}>
+                  {i + 1}
+                </option>
+              );
             })}
         </select>
       </div>
