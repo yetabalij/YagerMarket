@@ -1,18 +1,13 @@
-// import { useEffect } from "react";
-import { itemToLocalStorate } from "./redux/features/product/cartItemsSlice";
-import Home from "./Pages/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //Components to route
+import Home from "./Pages/Home";
 import Footer from "./Components/Footer";
 import SearchPage from "./Pages/SearchPage";
 import SingleProduct from "./Pages/SingleProduct";
 import Cart from "./Pages/Cart";
 
 function App() {
-  // useEffect(() => {
-  //   itemToLocalStorate();
-  // }, []);
   return (
     <div>
       <BrowserRouter>
