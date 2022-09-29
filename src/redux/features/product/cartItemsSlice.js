@@ -10,16 +10,26 @@ const cartItemsSlice = createSlice({
       const isExist = state.Items.find(
         (item) => item._id === action.payload._id
       );
+      // if (isExist) {
+      //   return {
+      //     ...state,
+      //     Items: state.Items.map((item) =>
+      //       item._id === action.payload._id ? action.payload : item
+      //     ),
+      //   };
+      // } else {
+      //   return { ...state, Items: [...state.Items, action.payload] };
+      // }
+      let value = null;
       if (isExist) {
-        return {
-          ...state,
-          Items: state.Items.map((item) =>
-            item._id === action.payload._id ? action.payload : item
-          ),
-        };
+        value = state.Items.map((item) => {
+          return item._id === action.payload._id ? action.payload : item;
+        });
+        localStorage.setItem("cartItems", JSON.stringify(value));
       } else {
-        return { ...state, Items: [...state.Items, action.payload] };
+        value = action.payload;
       }
+      return { ...state, Items: [...state.Items, value] };
     },
     itemToLocalStorate: (state) => {
       localStorage.setItem("cartItems", JSON.stringify(state.Items));
