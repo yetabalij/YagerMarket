@@ -4,6 +4,11 @@ import NavBar from "../Components/NavBar";
 const Cart = () => {
   const cartItems = useSelector((state) => state.CartItems?.Items);
 
+  let subTotal = 0;
+  cartItems.map((item) => {
+    return (subTotal = subTotal + item?.price * item?.amount);
+  });
+
   return (
     <div>
       <NavBar />
@@ -48,14 +53,17 @@ const Cart = () => {
             </div>
           );
         })}
-        <div className="text-center mt-10">
+        <div className="text-center mt-5">
           {cartItems.length !== 0 && (
-            <button
-              className="bg-orange-500 text-white py-2 px-14 rounded-sm md:text-xl md:font-medium"
-              onClick={() => alert("pay")}
-            >
-              Pay Now
-            </button>
+            <div>
+              <p className="mb-5 text-xl font-medium">{`SubTotal: ${subTotal}`}</p>
+              <button
+                className="bg-orange-500 text-white py-2 px-14 rounded-sm md:text-xl md:font-medium"
+                onClick={() => alert("pay")}
+              >
+                Pay Now
+              </button>
+            </div>
           )}
         </div>
       </div>
