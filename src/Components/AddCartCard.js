@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  addItemToCart,
-  itemToLocalStorate,
-} from "../redux/features/product/cartItemsSlice";
+import { addItemToCart } from "../redux/features/product/cartItemsSlice";
 
 const AddCartCard = () => {
   const [amount, setAmount] = useState(1);
   const product = JSON.parse(localStorage.getItem("singleProduct"));
   const dispach = useDispatch();
-
-  // useEffect(() => {
-  //   dispach(itemToLocalStorate());
-  // }, [product]);
 
   return (
     <div className="sm:mt-4 shadow-sm p-4">
@@ -43,7 +36,6 @@ const AddCartCard = () => {
           className="bg-orange-500 text-white px-12 py-2"
           onClick={() => {
             dispach(addItemToCart({ ...product.singleProduct, amount }));
-            //dispach(itemToLocalStorate());
           }}
         >
           Add to Cart
