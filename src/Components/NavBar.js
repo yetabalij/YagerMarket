@@ -25,7 +25,7 @@ const NavBar = () => {
               <RiShoppingCartFill className="text-3xl" />
               <div className="absolute right-[-60%] top-[-20%] w-[18px] h-[18px]">
                 <p className="text-lg font-bold absolute top-[-15%]">
-                  {localStorageItems?.length || stateItems?.length}
+                  {stateItems?.length}
                 </p>
               </div>
             </Link>
