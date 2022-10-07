@@ -1,8 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Rating from "react-rating";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 const ReviewCard = () => {
+  const navigate = useNavigate();
+  const isUserExist = null;
+
+  const handleSubmitReview = () => {
+    if (isUserExist) {
+      alert("hello");
+    } else {
+      navigate("/signin");
+    }
+  };
   return (
     <div className="shadow-lg mt-4 w-full p-4">
       <h2 className="text-2xl font-medium">Give Your Review</h2>
@@ -20,7 +31,10 @@ const ReviewCard = () => {
         <input className="outline outline-1 outline-offset-1 w-full ml-[2px]" />
       </div>
       <div className="mt-3">
-        <button className="bg-orange-500 text-white px-10 py-2">
+        <button
+          className="bg-orange-500 text-white px-10 py-2"
+          onClick={handleSubmitReview}
+        >
           Submit Review
         </button>
       </div>
