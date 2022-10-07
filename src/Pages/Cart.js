@@ -1,7 +1,10 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { removeCart } from "./../redux/features/product/cartItemsSlice";
 import NavBar from "../Components/NavBar";
 
 const Cart = () => {
+  const dispach = useDispatch();
   const cartItems = useSelector((state) => state.CartItems?.Items);
 
   let subTotal = 0;
@@ -46,7 +49,7 @@ const Cart = () => {
               </div>
               <button
                 className="bg-orange-500 text-white py-2 px-14 rounded-sm mr-10"
-                onClick={() => alert(item._id)}
+                onClick={() => dispach(removeCart(item?._id))}
               >
                 Delete
               </button>
