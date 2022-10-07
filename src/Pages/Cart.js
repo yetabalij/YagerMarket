@@ -1,16 +1,28 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { removeCart } from "./../redux/features/product/cartItemsSlice";
 import NavBar from "../Components/NavBar";
 
 const Cart = () => {
   const dispach = useDispatch();
+  const navigate = useNavigate();
+
   const cartItems = useSelector((state) => state.CartItems?.Items);
+  const isUserExist = null;
 
   let subTotal = 0;
   cartItems.map((item) => {
     return (subTotal = subTotal + item?.price * item?.amount);
   });
+
+  const handlePayNow = () => {
+    if (isUserExist) {
+      alert("hello");
+    } else {
+      navigate("/signin");
+    }
+  };
 
   return (
     <div>
@@ -62,7 +74,7 @@ const Cart = () => {
               <p className="mb-5 text-xl font-medium">{`SubTotal: ${subTotal}`}</p>
               <button
                 className="bg-orange-500 text-white py-2 px-14 rounded-sm md:text-xl md:font-medium"
-                onClick={() => alert("pay")}
+                onClick={handlePayNow}
               >
                 Pay Now
               </button>
