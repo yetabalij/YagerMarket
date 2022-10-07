@@ -6,6 +6,7 @@ import Footer from "./Components/Footer";
 import SearchPage from "./Pages/SearchPage";
 import SingleProduct from "./Pages/SingleProduct";
 import Cart from "./Pages/Cart";
+import Signin from "./Pages/Signin";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/signin" element={<Signin />} />
         </Routes>
       </BrowserRouter>
       <Footer />
