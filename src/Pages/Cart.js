@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { removeCart } from "./../redux/features/product/cartItemsSlice";
 import NavBar from "../Components/NavBar";
+import Footer from "../Components/Footer";
 
 const Cart = () => {
   const dispach = useDispatch();
@@ -82,6 +83,7 @@ const Cart = () => {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

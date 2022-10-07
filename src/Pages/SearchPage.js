@@ -3,6 +3,7 @@ import axios from "axios";
 import NavBar from "../Components/NavBar";
 import ProductListContainer from "../Components/ProductListContainer";
 import { useLocation } from "react-router-dom";
+import Footer from "../Components/Footer";
 
 const SearchPage = () => {
   const location = useLocation();
@@ -29,6 +30,7 @@ const SearchPage = () => {
     <div>
       <NavBar />
       <ProductListContainer loading={loading} searchData={searchData} />
+      <Footer />
     </div>
   );
 };

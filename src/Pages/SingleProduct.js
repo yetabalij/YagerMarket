@@ -6,6 +6,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import AddCartCard from "../Components/AddCartCard";
 import ReviewCard from "../Components/ReviewCard";
+import Footer from "../Components/Footer";
 
 const SingleProduct = () => {
   const [loading, seatLoading] = useState(true);
@@ -40,6 +41,7 @@ const SingleProduct = () => {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 };
