@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Components/Footer";
 import NavBar from "../Components/NavBar";
 
 const Signin = () => {
+  const navigate = useNavigate();
   return (
     <div className="">
       <NavBar />
@@ -38,7 +39,10 @@ const Signin = () => {
           </div>
         </div>
         <div className="w-[90%] md:w-[45%] lg:w-[40%] xl:w-[30%] 2xl:w-[25%] mt-4 mx-auto">
-          <button className="bg-orange-400 text-white py-2 rounded-sm w-full font-medium">
+          <button
+            className="bg-orange-400 text-white py-2 rounded-sm w-full font-medium"
+            onClick={() => navigate("/signup")}
+          >
             Create your YegarMarket Account
           </button>
         </div>
