@@ -47,7 +47,7 @@ const Signup = () => {
         "Password needs Uppercase,Lowercase,Number,Special character and minimum 8 characters."
       );
     }
-    dispatch(signup(formValue));
+    dispatch(signup({ formValue, navigate }));
   };
   return (
     <div>
