@@ -49,9 +49,9 @@ const Cart = () => {
                 boxShadow:
                   " rgba(50, 50, 93, 0.15) 0px 1px 2px 1px, rgba(0, 0, 0, 0.15) 0px 1px 1px -1px",
               }}
-              className="mt-2 flex justify-between items-center"
+              className="mt-2 sm:flex justify-between items-center"
             >
-              <div className="w-[20%]">
+              <div className="sm:w-[20%]">
                 <img src={item?.image} alt={item?._id} />
               </div>
               <div className="">
@@ -61,7 +61,7 @@ const Cart = () => {
                 <p>{`Total: $${item?.price * item?.amount}`}</p>
               </div>
               <button
-                className="bg-orange-500 text-white py-2 px-14 rounded-sm mr-10"
+                className="bg-orange-500 w-full sm:w-fit text-white py-2 px-14 rounded-sm mr-10"
                 onClick={() => dispach(removeCart(item?._id))}
               >
                 Delete
@@ -74,7 +74,7 @@ const Cart = () => {
             <div>
               <p className="mb-5 text-xl font-medium">{`SubTotal: ${subTotal}`}</p>
               <button
-                className="bg-orange-500 text-white py-2 px-14 rounded-sm md:text-xl md:font-medium"
+                className="bg-orange-500 w-full sm:w-fit text-white py-2 px-14 rounded-sm md:text-xl md:font-medium"
                 onClick={handlePayNow}
               >
                 Pay Now
