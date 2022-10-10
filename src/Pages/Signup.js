@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import isEmail from "validator/lib/isEmail";
+import isEmpty from "validator/lib/isEmpty";
+import isStrongPassword from "validator/lib/isStrongPassword";
+
 import Footer from "../Components/Footer";
 import NavBar from "./../Components/NavBar";
 
@@ -10,6 +14,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [validationError, setValidationError] = useState("");
 
   const formValue = {
     fname,
@@ -21,6 +26,23 @@ const Signup = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    if (
+      isEmpty(fname) ||
+      isEmpty(lname) ||
+      isEmpty(email) ||
+      isEmpty(password) ||
+      isEmpty(confirmPassword)
+    ) {
+      return setValidationError("All fields are required.");
+    }
+    if (!isEmail(email)) {
+      return setValidationError("Valid Email is required.");
+    }
+    if (!isStrongPassword(password)) {
+      return setValidationError(
+        "Password needs Uppercase,Lowercase,Number,Special character and minimum 8 characters."
+      );
+    }
     alert(JSON.stringify(formValue));
   };
   return (
@@ -30,6 +52,11 @@ const Signup = () => {
         <div className="border border-solid border-orange-300 drop-shadow-sm w-[90%] md:w-[45%] lg:w-[40%] xl:w-[30%] 2xl:w-[25%] p-5 mx-auto">
           <p className="text-2xl font-medium mb-3">Sign up</p>
           <form className="flex flex-col" onSubmit={onSubmitHandler}>
+            {validationError && (
+              <p className="mb-2 bg-red-500 py-1 text-white">
+                {validationError}
+              </p>
+            )}
             <label className="font-bold">First Name</label>
             <input
               className="border border-gray-400 rounded focus:outline-none focus:border-orange-400 p-2 mb-1 text-gray-600"
@@ -38,6 +65,7 @@ const Signup = () => {
               value={fname}
               onChange={(e) => {
                 setFname(e.target.value);
+                setValidationError("");
               }}
             />
             <label className="font-bold">Last Name</label>
@@ -48,6 +76,7 @@ const Signup = () => {
               value={lname}
               onChange={(e) => {
                 setLname(e.target.value);
+                setValidationError("");
               }}
             />
             <label className="font-bold">Email</label>
@@ -58,6 +87,7 @@ const Signup = () => {
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
+                setValidationError("");
               }}
             />
             <label className="font-bold">Password</label>
@@ -68,6 +98,7 @@ const Signup = () => {
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
+                setValidationError("");
               }}
             />
             <label className="font-bold">Confirm Password</label>
@@ -78,6 +109,7 @@ const Signup = () => {
               value={confirmPassword}
               onChange={(e) => {
                 setConfirmPassword(e.target.value);
+                setValidationError("");
               }}
             />
             <div>
