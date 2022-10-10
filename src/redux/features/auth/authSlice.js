@@ -1,16 +1,16 @@
-import { creatSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-const authSlcie = creatSlice({
+const authSlcie = createSlice({
   name: "auth",
   initialState: {
     User: {},
   },
   reducers: {
-    signup: () => {
-      alert("ok");
+    signup: (state, action) => {
+      console.log("ok");
     },
   },
 });
 
-export const { signup } = authSlcie.action;
-export default authSlcie.reducers;
+export const { signup } = authSlcie.actions;
+export default authSlcie.reducer;
