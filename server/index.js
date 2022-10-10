@@ -7,6 +7,7 @@ dotenv.config();
 
 //route imports
 const productRoute = require("./routes/product");
+const authRoute = require("./routes/auth");
 
 //creating the express app
 const app = express();
@@ -19,6 +20,7 @@ app.use(morgan("dev"));
 
 //routing midlewars
 app.use("/api/product", productRoute);
+app.use("/api/auth", authRoute);
 
 //Connecting to mongoose db
 const connect = async () => {
