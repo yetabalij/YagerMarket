@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const authSlcie = createSlice({
   name: "auth",
@@ -7,7 +8,12 @@ const authSlcie = createSlice({
   },
   reducers: {
     signup: (state, action) => {
-      console.log("ok");
+      const { formValue, navigate } = action.payload;
+      axios
+        .post("http://localhost:5000/api/auth/signup", formValue)
+        .then((res) => console.log(res.data));
+      //alert(JSON.stringify(formValue));
+      //navigate("/");
     },
   },
 });
