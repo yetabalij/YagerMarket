@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import isEmail from "validator/lib/isEmail";
 import isEmpty from "validator/lib/isEmpty";
 import isStrongPassword from "validator/lib/isStrongPassword";
 
 import Footer from "../Components/Footer";
 import NavBar from "./../Components/NavBar";
+import { signup } from "../redux/features/auth/authSlice";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
@@ -43,7 +47,7 @@ const Signup = () => {
         "Password needs Uppercase,Lowercase,Number,Special character and minimum 8 characters."
       );
     }
-    alert(JSON.stringify(formValue));
+    dispatch(signup(formValue));
   };
   return (
     <div>
