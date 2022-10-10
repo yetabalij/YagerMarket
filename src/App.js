@@ -10,7 +10,7 @@ import Signup from "./Pages/Signup";
 
 function App() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
