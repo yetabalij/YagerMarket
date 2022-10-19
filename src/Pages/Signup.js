@@ -13,16 +13,16 @@ const Signup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
+  const [firstName, setFirstname] = useState("");
+  const [lastName, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [validationError, setValidationError] = useState("");
 
   const formValue = {
-    fname,
-    lname,
+    firstName,
+    lastName,
     email,
     password,
     confirmPassword,
@@ -31,8 +31,8 @@ const Signup = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     if (
-      isEmpty(fname) ||
-      isEmpty(lname) ||
+      isEmpty(firstName) ||
+      isEmpty(lastName) ||
       isEmpty(email) ||
       isEmpty(password) ||
       isEmpty(confirmPassword)
@@ -66,9 +66,9 @@ const Signup = () => {
               className="border border-gray-400 rounded focus:outline-none focus:border-orange-400 p-2 mb-1 text-gray-600"
               type="text"
               placeholder="First Name"
-              value={fname}
+              value={firstName}
               onChange={(e) => {
-                setFname(e.target.value);
+                setFirstname(e.target.value);
                 setValidationError("");
               }}
             />
@@ -77,9 +77,9 @@ const Signup = () => {
               className="border border-gray-400 rounded active:border-orange-400 focus:outline-none focus:border-orange-400 p-2 mb-1 text-gray-600"
               type="text"
               placeholder="Last Name"
-              value={lname}
+              value={lastName}
               onChange={(e) => {
-                setLname(e.target.value);
+                setLastname(e.target.value);
                 setValidationError("");
               }}
             />
